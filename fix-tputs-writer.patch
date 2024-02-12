@@ -1,0 +1,12 @@
+diff '--color=auto' -Naur fish-3.7.0.orig/src/output.cpp fish-3.7.0/src/output.cpp
+--- fish-3.7.0.orig/src/output.cpp	2024-01-01 07:15:17.000000000 -0800
++++ fish-3.7.0/src/output.cpp	2024-09-14 19:58:46.191895598 -0700
+@@ -288,7 +288,7 @@
+ static std::mutex s_tputs_receiver_lock;
+ static outputter_t *s_tputs_receiver{nullptr};
+ 
+-static int tputs_writer(tputs_arg_t b) {
++static int tputs_writer(int b) {
+     ASSERT_IS_LOCKED(s_tputs_receiver_lock);
+     assert(s_tputs_receiver && "null s_tputs_receiver");
+     char c = static_cast<char>(b);
